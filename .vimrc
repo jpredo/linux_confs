@@ -1,9 +1,7 @@
 set nocompatible
 
-
 " Line numbers
 set number
-set relativenumber
 
 " Synax Highlighting?
 if has('syntax')
