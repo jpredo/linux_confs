@@ -17,21 +17,14 @@ Plug 'https://github.com/markonm/traces.vim'
 " Indent guides
 Plug 'yggdroot/indentline'
 
-" Colourscheme
-Plug 'altercation/vim-colors-solarized'
-
 call plug#end()
 
 " Plugin enables/confs
 
 " Indent guides
 let g:indentLine_enabled = 1
-let g:indentLine_char_list = ['|', '┆']
+let g:indentLine_char_list = ['|', '¦']
 let g:indentLine_setColors = 0
-
-" Colorscheme
-set background=dark
-colorscheme solarized
 
 " Synax Highlighting
 if has('syntax')
@@ -44,6 +37,9 @@ set nostartofline
 set showmatch
 set showmode
 set visualbell
+set hlsearch
+set noswapfile
+
 
 " auto indent
 set autoindent
@@ -60,7 +56,7 @@ set autoindent
 let &t_SI = "\e[5 q"
 let &t_EI = "\e[2 q"
 
-" Command mode <tab> completion
+" Command mode shit
 set wildmenu
 set wildmode=longest:full,full
 set wildoptions=pum
