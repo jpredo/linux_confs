@@ -1,13 +1,11 @@
 " .vimrc
 " Author: jpredo
-
 " Autoload vim-plug
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
 if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+	silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+	autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
-
 " Plugins
 call plug#begin()
 
@@ -43,6 +41,9 @@ set noswapfile
 
 " auto indent
 set autoindent
+set noexpandtab
+set tabstop=4
+set shiftwidth=4
 
 " Cursor Changes
 " 0  -> blinking block.
@@ -60,3 +61,18 @@ let &t_EI = "\e[2 q"
 set wildmenu
 set wildmode=longest:full,full
 set wildoptions=pum
+
+" Char Highlighting
+set list
+set listchars=eol:¬,tab:▸-,trail:·,extends:>,precedes:<
+:hi SpecialKey ctermfg=darkgray guifg=gray70
+
+" aliases
+" Removes trailing spaces
+function TrimTrailingWhiteSpace()
+	%s/\s*$//
+	''
+endfunction
+
+" map to :Tws
+command Tws call TrimTrailingWhiteSpace()
